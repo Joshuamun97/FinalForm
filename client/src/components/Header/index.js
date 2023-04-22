@@ -12,11 +12,11 @@ const Header = () => (
             <NavLink exact="true" className='profileLogo' to='/profile'>
                 <FontAwesomeIcon icon={faUser} color="#4d4d4e" />
             </NavLink>
-        </div>
         {/* <div className='parent'> */}
             <NavLink exact="true" className='settingsLogo' activeclassname="active" to="settings">
                 <FontAwesomeIcon icon={faGear} color="#4d4d4e" />
             </NavLink>
+        </div>
         {/* </div> */}
 
         {/* <ul>
