@@ -5,14 +5,20 @@ import { faEnvelope, faGear, faHome, faUser } from '@fortawesome/free-solid-svg-
 
 const Header = () => (
     <div className='nav-bar'>
-        <Link exact="true" className='logo' to='/profile'>
+        {/* <Link exact="true" className='logo' to='/profile'>
         <FontAwesomeIcon icon={faUser} color="#4d4d4e" />
-        </Link>
-        <nav>
-        <NavLink exact="true" activeclassname="active" to="settings">
+        </Link> */}
+        <div className='parent'>
+            <NavLink exact="true" className='profileLogo' to='/profile'>
+                <FontAwesomeIcon icon={faUser} color="#4d4d4e" />
+            </NavLink>
+        </div>
+        {/* <div className='parent'> */}
+            <NavLink exact="true" className='settingsLogo' activeclassname="active" to="settings">
                 <FontAwesomeIcon icon={faGear} color="#4d4d4e" />
             </NavLink>
-        </nav>
+        {/* </div> */}
+
         {/* <ul>
             <li>
                 <a target="_blank" rel='noreferrer' href='https://www.linkedin.com/in/joshua-muniz-b8491025b/'>
