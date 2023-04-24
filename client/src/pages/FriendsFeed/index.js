@@ -1,18 +1,15 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-
-import FriendsPosts from '../../components/FriendsPosts'
+import Share from '../../components/Share';
+import FriendsPosts from '../../components/FriendsPosts';
+import './index.scss';
 
 const FriendsFeed = () => {
     return (
 
-        <div className="flex-row justify-center">
-            <div
-                className="mx-auto col-12 col-md-10 mb-3 p-3"
-                style={{ border: '1px dotted #1a1a1a' }}
-            >
+        <div className="feedContainer d-flex flex-wrap justify-content-center w-100">
                 <FriendsPosts />
-            </div>
+                <Share />
         </div>
     );
 }
