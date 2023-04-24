@@ -2,19 +2,19 @@ import { Link, NavLink } from 'react-router-dom';
 import './index.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faGear, faHome, faUser } from '@fortawesome/free-solid-svg-icons';
+import closeFriends1 from '../../assets/images/closeFriends1.png';
 
 const Header = () => (
     <div className='nav-bar'>
-        {/* <Link exact="true" className='logo' to='/profile'>
-        <FontAwesomeIcon icon={faUser} color="#4d4d4e" />
-        </Link> */}
         <div className='parent'>
             <NavLink exact="true" className='profileLogo' to='/profile'>
-                <FontAwesomeIcon icon={faUser} color="#4d4d4e" />
+                <FontAwesomeIcon icon={faUser} color="#F54242" />
             </NavLink>
-        {/* <div className='parent'> */}
-            <NavLink exact="true" className='settingsLogo' activeclassname="active" to="settings">
-                <FontAwesomeIcon icon={faGear} color="#4d4d4e" />
+            <Link className='logo' to='/'>
+            <img src={closeFriends1} alt="logo" />
+        </Link>
+        <NavLink exact="true" className='settingsLogo' activeclassname="active" to="settings">
+                <FontAwesomeIcon icon={faGear} color="#F54242" />
             </NavLink>
         </div>
         {/* </div> */}
