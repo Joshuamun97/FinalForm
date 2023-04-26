@@ -6,7 +6,7 @@ import { faEllipsisVertical, faThumbsUp } from '@fortawesome/free-solid-svg-icon
 
 export default function Post() {
   return (
-    <div className="post rounded-2"
+    <div className="post mb-3 rounded-2"
     style={{ border: '1px solid #1a1a1a' }}>
         <div className="postWrapper p-3">
             <div className="postTop d-flex align-items-center justify-content-between">
