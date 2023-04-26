@@ -14,9 +14,15 @@ const FriendsPosts = ({
   //   }
 
   return (
-    <div className="feedWrapper d-flex rounded-2 col-12 col-md-7 mb-3 mt-0 p-3"
+    <div className="feedWrapper rounded-2 col-12 col-md-7 mb-3 mt-0 p-3"
       // style={{ border: '1px solid #1a1a1a' }}
       >
+      <Post />
+      <Post />
+      <Post />
+      <Post />
+      <Post />
+      <Post />
       <Post />
     </div>
 

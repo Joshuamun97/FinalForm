@@ -1,7 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import './index.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faGear, faHome, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faGear, faUser } from '@fortawesome/free-solid-svg-icons';
 import closeFriends1 from '../../assets/images/closeFriends1.png';
 
 const Header = () => (

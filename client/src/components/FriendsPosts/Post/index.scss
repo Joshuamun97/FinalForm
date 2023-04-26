@@ -32,3 +32,13 @@
     max-height: 500px;
     object-fit: contain;
 }
+
+.likeCounter{
+    font-size: 15px;
+}
+
+.postCommentText{
+    cursor: pointer;
+    font-size: 15px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.813);
+}
