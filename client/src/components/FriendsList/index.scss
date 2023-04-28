@@ -1,0 +1,24 @@
+.friendsListContainer {
+    position: sticky;
+    top: 70px;
+    right: 0;
+    width: 20%;
+    height: fit-content;
+    margin: 20px 0;
+  }
+  
+  .friendsList {
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+  }
+  
+  .friendsListHeader {
+    margin-bottom: 10px;
+  }
+  
+  .friendsListBody {
+    margin-top: 10px;
+  }
+  

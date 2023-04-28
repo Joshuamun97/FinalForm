@@ -3,7 +3,7 @@ import './index.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGear, faUser } from '@fortawesome/free-solid-svg-icons';
 import closeFriends1 from '../../assets/images/closeFriends1.png';
-
+import Logout from '../Logout/Logout';
 const Header = () => (
     
     <div className='nav-bar'>
@@ -17,6 +17,7 @@ const Header = () => (
         <NavLink exact="true" className='settingsLogo' activeclassname="active" to="settings">
                 <FontAwesomeIcon icon={faGear} color="#F54242" />
             </NavLink>
+            <Logout />
         </div>
         {/* </div> */}
 

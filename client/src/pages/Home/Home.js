@@ -20,9 +20,6 @@ const Home = () => {
           {Auth.loggedIn() ? (
             <>
               <FriendsFeed />
-              <button className="btn btn-lg btn-light m-2" onClick={logout}>
-                Logout
-              </button>
             </>
           ) : (
             <div className='mt-5'>

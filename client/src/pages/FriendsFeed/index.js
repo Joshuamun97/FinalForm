@@ -1,7 +1,6 @@
 import { useQuery } from '@apollo/client';
-
-import Share from '../../components/Share/index'
-
+import FriendsList from '../../components/FriendsList/FriendsList';
+import Share from '../../components/Share/index';
 import { QUERY_THOUGHTS } from '../../utils/queries';
 import FriendsPosts from '../../components/FriendsPosts';
 import './index.scss'
@@ -10,8 +9,6 @@ const FriendsFeed = () => {
   const thoughts = data?.thoughts || [];
 
   return (
-   
-
     <main>
   <div className=" homeFeedContainer d-flex flex-row flex-wrap align-items-center">
     
@@ -24,6 +21,9 @@ const FriendsFeed = () => {
     </div>
     <div className="rightContainer ">
       <Share />
+      <FriendsList />
+
+
     </div>
   </div>
 </main>
@@ -32,5 +32,3 @@ const FriendsFeed = () => {
 };
 
 export default FriendsFeed;
-
-
