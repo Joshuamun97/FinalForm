@@ -21,6 +21,9 @@ const FriendsFeed = () => {
     </div>
     <div className="rightContainer ">
       <Share />
+      <FriendsList />
+
+
     </div>
   </div>
 </main>
