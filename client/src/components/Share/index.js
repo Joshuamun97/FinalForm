@@ -68,41 +68,37 @@ const Share = () => {
 
   return (
     <div className='container'>
+      <form className="shareContainer d-flex rounded-2 " style={{ border: '1px solid #1a1a1a' }} onSubmit={handleFormSubmit}>
+        <div className='shareContent container flex-wrap p-2'>
+          <div className="shareTop d-flex flex-wrap align-items-center mt-4">
+            <img className='profilePic' src={person} />
+            <input placeholder='Share something amazing...' className='shareInput border-0 w-75' name="thoughtText" value={thoughtText} onChange={handleChange} />
+          </div>
+          <hr className='shareHr mt-4 mb-4' />
+          <div className="shareBottom d-flex flex-wrap align-items-center justify-content-between">
+            <div className="shareOptions flex-wrap ms-1 d-flex">
+              <div className="shareOption d-flex align-items-center">
+                <FontAwesomeIcon className='shareIcon' icon={faPhotoFilm} color="#c94247" />
+                <span className='shareText'> Media</span>
+              </div>
+              <div className="shareOption d-flex align-items-center">
+                <FontAwesomeIcon className='shareIcon' icon={faTag} color="#c94247" />
+                <span className='shareText'> Tag</span>
+              </div>
+              <div className="shareOption d-flex align-items-center">
+                <FontAwesomeIcon className='shareIcon' icon={faMapMarkerAlt} color="#c94247" />
+                <span className='shareText'> Location</span>
+              </div>
+              <div className="shareOption d-flex align-items-center">
+                <FontAwesomeIcon className='shareIcon' icon={faSmile} color="#c94247" />
+                <span className='shareText'> Feeling</span>
+              </div>
+            </div>
+            <button className='shareButton flex-wrap' type="submit">Share</button>
+          </div>
+        </div>
 
-
-<form className="shareContainer d-flex rounded-2 " style={{ border: '1px solid #1a1a1a' }} onSubmit={handleFormSubmit}>
-  <div className='shareContent container flex-wrap p-2'>
-    <div className="shareTop d-flex align-items-center">
-      <img className='profilePic' src={person} />
-      <input placeholder='Share something amazing...' className='shareInput border-0 w-75' name="thoughtText" value={thoughtText} style={{ lineHeight: '1.5', resize: 'vertical' }} onChange={handleChange} />
-    </div>
-    <hr className='shareHr mt-4' />
-    <div className="shareBottom d-flex align-items-center justify-content-between">
-      <div className="shareOptions ms-1 d-flex">
-        <div className="shareOption d-flex align-items-center">
-          <FontAwesomeIcon className='shareIcon' icon={faPhotoFilm} color="#c94247" />
-          <span className='shareText'> Media</span>
-        </div>
-        <div className="shareOption d-flex align-items-center">
-          <FontAwesomeIcon className='shareIcon' icon={faTag} color="#c94247" />
-          <span className='shareText'> Tag</span>
-        </div>
-        <div className="shareOption d-flex align-items-center">
-          <FontAwesomeIcon className='shareIcon' icon={faMapMarkerAlt} color="#c94247" />
-          <span className='shareText'> Location</span>
-        </div>
-        <div className="shareOption d-flex align-items-center">
-          <FontAwesomeIcon className='shareIcon' icon={faSmile} color="#c94247" />
-          <span className='shareText'> Feeling</span>
-        </div>
-      </div>
-      <button className='shareButton btn btn-primary btn-block py-3' type="submit">Share</button>
-    </div>
-  </div>
-  
-</form>
-
- 
+      </form>
     </div>
   );
 };
