@@ -47,12 +47,12 @@ export default function App() {
         <div>
           <Header />
           <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/" element={<FriendsFeed />} />
-            <Route path="profile" element={<Profile />} />
-            <Route path="settings" element={<Settings />} />
+            <Route path="/friendsfeed" element={<FriendsFeed />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/settings" element={<Settings />} />
           </Routes>
         </div>
       </Router>
