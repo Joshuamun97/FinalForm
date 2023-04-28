@@ -1,22 +1,34 @@
-import React from 'react';
 import { useQuery } from '@apollo/client';
-import Share from '../../components/Share';
 import FriendsList from '../../components/FriendsList/FriendsList';
+import Share from '../../components/Share/index';
+import { QUERY_THOUGHTS } from '../../utils/queries';
 import FriendsPosts from '../../components/FriendsPosts';
-import './index.scss';
+import LogoutButton from '../../components/Logout/Logout';
 
 const FriendsFeed = () => {
-    return (
+  const { loading, data } = useQuery(QUERY_THOUGHTS);
+  const thoughts = data?.thoughts || [];
 
-        <div className="feedContainer d-flex flex-wrap justify-content-center w-100">
-            <div>
-                <FriendsPosts />
-                <Share />
-                <FriendsList />
-                </div>
-            </div>
-        
-    );
-}
+  return (
+    <main>
+      <div className="friends-feed-container">
+        <div className="friends-posts-container">
+          {loading ? (<div>Loading...</div>) 
+          : (
+            <FriendsPosts thoughts={thoughts} title="Friends Feed " />
+          )}
+          
+        </div>
+        <div className="friends-sidebar-container">
+          <div className="friends-sidebar-content">
+            <LogoutButton />
+            <Share />
+            <FriendsList />
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+};
 
 export default FriendsFeed;

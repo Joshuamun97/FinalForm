@@ -12,7 +12,7 @@ export default function FriendsList() {
             style={{ border: '1px solid #1a1a1a' }}>
             <div class='shareContent container flex-wrap p-6'>
                 <div className="shareTop d-flex align-items-center ">
-                    <img className='profilePic' src={person} className1 = "friendsOption" />
+                    <img className='profilePic' src={person} />
                     <img className='profilePic' src={person1} />
                     <img className='profilePic' src={person2} />
                     <img className='profilePic' src={person3} />

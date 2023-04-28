@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './index.scss'
-import Post from './Post/index'
+import Post from '../Post/index'
 
 const FriendsPosts = ({
   thoughts,
@@ -17,13 +17,7 @@ const FriendsPosts = ({
     <div className="feedWrapper rounded-2 col-12 col-md-7 mb-3 mt-0 p-3"
       // style={{ border: '1px solid #1a1a1a' }}
       >
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
+      <Post thoughts={thoughts} title="Friends Feed"/>
     </div>
 
   );
