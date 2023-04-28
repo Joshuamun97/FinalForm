@@ -10,7 +10,7 @@ const Header = () => (
             <NavLink exact="true" className='profileLogo' to='/profile'>
                 <FontAwesomeIcon icon={faUser} color="#F54242" />
             </NavLink>
-            <Link className='logo' to='/friendsFeed'>
+            <Link className='logo' to='/'>
             <img src={closeFriends1} alt="logo" />
         </Link>
         <NavLink exact="true" className='settingsLogo' activeclassname="active" to="settings">

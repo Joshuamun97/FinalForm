@@ -4,10 +4,18 @@ import Share from '../../components/Share/index'
 
 import { QUERY_THOUGHTS } from '../../utils/queries';
 import FriendsPosts from '../../components/FriendsPosts';
+import Auth from '../../utils/auth';
+import Home from '../Home/Home'
 
 const FriendsFeed = () => {
   const { loading, data } = useQuery(QUERY_THOUGHTS);
   const thoughts = data?.thoughts || [];
+
+  const isLoggedIn = Auth.loggedIn();
+
+  if (!isLoggedIn) {
+    return <Home />;
+  }
 
   return (
    
