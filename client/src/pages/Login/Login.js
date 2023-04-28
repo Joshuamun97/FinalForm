@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../utils/mutations';
-import './index.scss'
+import './Index.scss'
 import Popup from '../../components/Popup';
 
 import Auth from '../../utils/auth';
@@ -90,7 +90,7 @@ const Login = (props) => {
                 <button
                   className="signupButton"
                   style={{ cursor: 'pointer' }}
-                  onClick ={() => setButtonPopup(true)}
+                  onClick={() => setButtonPopup(true)}
                 >
                   Create Account
                 </button>
