@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisVertical, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import './index.scss'
 
-const ThoughtList = ({
+const Post = ({
   thoughts,
   title,
   showTitle = true,
@@ -68,4 +68,4 @@ const ThoughtList = ({
   );
 };
 
-export default ThoughtList;
+export default Post;

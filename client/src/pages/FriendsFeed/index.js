@@ -4,7 +4,7 @@ import Share from '../../components/Share/index'
 
 import { QUERY_THOUGHTS } from '../../utils/queries';
 import FriendsPosts from '../../components/FriendsPosts';
-
+import './index.scss'
 const FriendsFeed = () => {
   const { loading, data } = useQuery(QUERY_THOUGHTS);
   const thoughts = data?.thoughts || [];
@@ -13,22 +13,16 @@ const FriendsFeed = () => {
    
 
     <main>
-  <div className="d-flex flex-row align-items-start" style={{ height: "100vh" }}>
+  <div className=" homeFeedContainer d-flex flex-row flex-wrap align-items-center">
     
-    <div
-      className="col-12 col-md-8 mb-3"
-      style={{ overflowY: "auto" }}
-    >
+    <div className="leftContainer">
       {loading ? (
         <div>Loading...</div>
       ) : (
         <FriendsPosts thoughts={thoughts} title="Friends Feed " />
       )}
     </div>
-    <div
-      className="col-12 col-md-4 mb-3 p-3"
-      style={{ border: "1px dotted #1a1a1a", height: "fit-content" }}
-    >
+    <div className="rightContainer ">
       <Share />
     </div>
   </div>
