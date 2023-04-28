@@ -1,8 +1,17 @@
-// .feedContainer{
-    
-// }
+.homeFeedContainer{
+    height: calc(100vh - 70px);
+    justify-content: center;
+}
 
-// .feedWrapper{
-//     height: calc(100vh - 70px);
-//     overflow-y: scroll;
-// }
+.leftContainer{
+    height: calc(100vh - 70px);
+    padding-left: 50px;
+    width: 60vw;
+}
+
+.rightContainer{
+    padding-right: 50px;
+    height: calc(100vh - 70px);
+    width: 40vw;
+    overflow: hidden;
+}

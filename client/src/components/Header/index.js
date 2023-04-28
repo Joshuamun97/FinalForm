@@ -5,6 +5,7 @@ import { faGear, faUser } from '@fortawesome/free-solid-svg-icons';
 import closeFriends1 from '../../assets/images/closeFriends1.png';
 
 const Header = () => (
+    
     <div className='nav-bar'>
         <div className='parent'>
             <NavLink exact="true" className='profileLogo' to='/profile'>
