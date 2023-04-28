@@ -16,14 +16,14 @@ const Home = () => {
         <div>
           {Auth.loggedIn() ? (
             <>
-                <FriendsFeed />
+              <FriendsFeed />
               <button className="btn btn-lg btn-light m-2" onClick={logout}>
                 Logout
               </button>
             </>
           ) : (
             <div className='mt-5'>
-            <Login />
+              <Login />
             </div>
           )}
         </div>
