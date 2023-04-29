@@ -48,7 +48,7 @@ export default function App() {
         <div>
           <Header />
           <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<FriendsFeed />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route path="/friendsFeed" element={<FriendsFeed />} />
