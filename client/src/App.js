@@ -16,6 +16,7 @@ import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
 import Home from "./pages/Home/Home";
 import Logout from "./components/Logout/Logout";
+import SinglePost from "./pages/SinglePost/SinglePost";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -55,6 +56,7 @@ export default function App() {
             <Route path="profile" element={<Profile />} />
             <Route path="settings" element={<Settings />} />
             <Route path = "/login" element ={<Logout />}/>
+            <Route path="/singlePost/:thoughtId" element={<SinglePost />} />
           </Routes>
         </div>
       </Router>
