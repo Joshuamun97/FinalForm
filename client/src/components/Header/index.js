@@ -5,19 +5,16 @@ import { faGear, faUser } from '@fortawesome/free-solid-svg-icons';
 import closeFriends1 from '../../assets/images/closeFriends1.png';
 import Logout from '../Logout/Logout';
 const Header = () => (
-    
+
     <div className='nav-bar'>
         <div className='parent'>
             <NavLink exact="true" className='profileLogo' to='/profile'>
                 <FontAwesomeIcon icon={faUser} color="#F54242" />
             </NavLink>
-            <Link className='logo' to='/friendsFeed'>
-            <img src={closeFriends1} alt="logo" />
-        </Link>
-        <NavLink exact="true" className='settingsLogo' activeclassname="active" to="settings">
-                <FontAwesomeIcon icon={faGear} color="#F54242" />
-            </NavLink>
-            <Logout />
+            <Link className='logo' to='/'>
+                <img src={closeFriends1} alt="logo" />
+            </Link>
+            <Logout className="logoutLogo"/>
         </div>
         {/* </div> */}
 

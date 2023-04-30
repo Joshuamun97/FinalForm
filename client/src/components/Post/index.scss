@@ -1,4 +1,5 @@
 .post {
+    background-color: #ffffff;
     width: 100%;
     min-width: 100%;
     -webkit-box-shadow: 0px 0px 8px 2px rgba(0,0,0,0.57); 
@@ -39,7 +40,15 @@
 }
 
 .postCommentText{
+    color: rgba(192, 17, 17, 0.813);
+    text-decoration: none;
     cursor: pointer;
     font-size: 15px;
-    border-bottom: 1px solid rgba(128, 128, 128, 0.813);
+    border-bottom: 1px solid rgba(192, 17, 17, 0.813);
+
+    &:hover{
+        color: rgba(60, 60, 60, 0.813);
+        border-bottom: 1px solid rgba(60, 60, 60, 0.813);
+        
+    }
 }

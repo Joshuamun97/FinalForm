@@ -11,11 +11,8 @@ const Home = () => {
   };
   return (
     <div className="homeContainer">
-      <div className="">
+      <div className="overall">
         <div>
-        <button className="btn btn-lg btn-light m-2" onClick={logout}>
-                Logout
-              </button>
           {Auth.loggedIn() ? (
             <>
               <FriendsFeed />

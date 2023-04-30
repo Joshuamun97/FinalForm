@@ -52,9 +52,8 @@ export default function App() {
           <Route path="/" element={<FriendsFeed />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/friendsFeed" element={<FriendsFeed />} />
-            <Route path="profile" element={<Profile />} />
-            <Route path="settings" element={<Settings />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/settings" element={<Settings />} />
             <Route path = "/login" element ={<Logout />}/>
             <Route path="/singlePost/:thoughtId" element={<SinglePost />} />
           </Routes>
