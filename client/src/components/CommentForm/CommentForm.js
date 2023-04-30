@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import { Button, Comment, Form } from 'semantic-ui-react';
 
 import { ADD_COMMENT } from '../../utils/mutations';
 
