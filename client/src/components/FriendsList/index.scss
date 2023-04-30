@@ -1,17 +1,14 @@
 .friendsListContainer {
-    position: sticky;
-    top: 70px;
-    right: 0;
-    width: 20%;
-    height: fit-content;
-    margin: 20px 0;
+  background-color: #fff;
+  margin-top: 3vh;
+  display: flex;
+  -webkit-box-shadow: 0px 0px 8px 2px rgba(0,0,0,0.57); 
+  box-shadow: 0px 0px 8px 2px rgba(0,0,0,0.41);
   }
   
   .friendsList {
-    background-color: #1a1a1a;
-    border-radius: 10px;
-    padding: 20px;
-    color: white;
+    width: 100vw;
+    min-width: 100%;
   }
   
   .friendsListHeader {
@@ -21,4 +18,15 @@
   .friendsListBody {
     margin-top: 10px;
   }
+
+  .findButton{
+    font-size: 16px;
+    font-weight: 600;
+    width: 125px;
+    border: none;
+    padding: 7px;
+    border-radius: 5px;
+    background-color: #080f0fad;
+    color: #ffffff;
+}
   

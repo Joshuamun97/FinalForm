@@ -9,8 +9,8 @@ import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
 import Auth from '../../utils/auth';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhotoFilm, faTag, faMapMarkerAlt, faSmile } from '@fortawesome/free-solid-svg-icons';
-import person from '../../assets/images/Joshua.jpg'
+import { faPhotoFilm, faTag, faMapMarkerAlt, faSmile, faUser } from '@fortawesome/free-solid-svg-icons';
+import person from '../../assets/images/userImage.png'
 
 const Share = () => {
   const [thoughtText, setThoughtText] = useState('');
@@ -68,7 +68,7 @@ const Share = () => {
 
   return (
     <div className='container'>
-      <form className="shareContainer d-flex rounded-2 " style={{ border: '1px solid #1a1a1a' }} onSubmit={handleFormSubmit}>
+      <form className="shareContainer d-flex rounded-2 " onSubmit={handleFormSubmit}>
         <div className='shareContent container flex-wrap p-2'>
           <div className="shareTop d-flex flex-wrap align-items-center mt-4">
             <img className='profilePic' src={person} />
