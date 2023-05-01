@@ -52,8 +52,8 @@ const Post = ({
                 <FontAwesomeIcon className='moreIcon' icon={faEllipsisVertical} color="#c94247" />
               </div> */}
               <div className="postTopRight">
-  <button onClick={() => handleDelete(thought._id)}>
-    <FontAwesomeIcon className='moreIcon' icon={faTrash} color="#c94247" />
+  <button className='moreIcon' onClick={() => handleDelete(thought._id)}>
+    <FontAwesomeIcon icon={faTrash} color="#c94247" />
   </button>
 </div>
 

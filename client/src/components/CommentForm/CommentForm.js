@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-
+import './index.scss';
 import { ADD_COMMENT } from '../../utils/mutations';
 
 import Auth from '../../utils/auth';
@@ -40,8 +40,8 @@ const CommentForm = ({ thoughtId }) => {
   };
 
   return (
-    <div>
-      <h4>Reply to a Post</h4>
+    <div className='commentForm pb-5'>
+      <h4 className='pb-4'>Reply to Post</h4>
 
       {/* {Auth.loggedIn() ? ( */}
         <>
@@ -54,23 +54,23 @@ const CommentForm = ({ thoughtId }) => {
             {error && <span className="ml-2">{error.message}</span>}
           </p> */}
           <form
-            className="flex-row justify-center justify-space-between-md align-center"
+            className="d-flex flex-row align-center"
             onSubmit={handleFormSubmit}
           >
-            <div className="col-12 col-lg-9">
+            <div className="commentArea d-flex justify-content-start">
               <textarea
                 name="commentText"
                 placeholder="Add your comment..."
                 value={commentText}
-                className="form-input w-100"
+                className="commentArea"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
               ></textarea>
             </div>
 
-            <div className="col-12 col-lg-3">
-              <button className="btn btn-primary btn-block py-3" type="submit">
-                Add Comment
+            <div className="">
+              <button className="commentButton" type="submit">
+                Comment
               </button>
             </div>
           </form>
