@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisVertical, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import './index.scss'
 import { Link } from 'react-router-dom';
+import Likes from '../LikesButton/LikesButton.js'
 
 const Post = ({
   thoughts,
@@ -56,15 +57,16 @@ const Post = ({
             <div className="postBottom d-flex align-items-center justify-content-between">
               <div className="postBottomLeft d-flex align-items-center">
                 <FontAwesomeIcon className='likeIcon me-1' icon={faThumbsUp} color="#c94247" />
-                <span className="likeCounter">5 people liked this</span>
+                {/* <span className="likeCounter">5 people liked this</span> */}
+                <Likes />
               </div>
               <div className="postBottomRight">
                 <Link to={`/singlePost/${thought._id}`} className="postCommentText">
-              {/* <span className="commentIcon"></span> */}
-              {thought.comments && thought.comments.length > 0 &&
-              <span className="commentCount">{thought.comments.length}</span>}
-              <span className="commentText">{thought.comments && thought.comments.length === 1 ? 'Comment' : 'Comments'}</span>
-              </Link>
+                  {/* <span className="commentIcon"></span> */}
+                  {thought.comments && thought.comments.length > 0 &&
+                    <span className="commentCount">{thought.comments.length}</span>}
+                  <span className="commentText">{thought.comments && thought.comments.length === 1 ? 'Comment' : 'Comments'}</span>
+                </Link>
               </div>
             </div>
           </div>
