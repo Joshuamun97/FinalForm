@@ -52,3 +52,17 @@
         
     }
 }
+
+.moreIcon{
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

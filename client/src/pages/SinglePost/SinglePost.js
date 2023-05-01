@@ -1,7 +1,6 @@
 
 import React from 'react';
-
-// Import the `useParams()` hook
+import './index.scss';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
@@ -25,33 +24,32 @@ const SingleThought = () => {
   //   return <div>Loading...</div>;
   // }
   return (
-    <div className="my-3">
-      <h2 className='p-1 mx-5'>Post</h2>
-      <h3 className="card-header text-dark p-2 m-10">
-        {thought.thoughtAuthor} <br />
-        <span style={{ fontSize: '1rem' }}>
-          had this Post on {thought.createdAt}
-        </span>
-      </h3>
-      <div className="bg-light py-4">
-        <blockquote
-          className=""
-          style={{
-            fontSize: '1.5rem',
-            fontStyle: 'italic',
-            // border: '2px dotted #1a1a1a',
-            lineHeight: '1.5',
-          }}
-        >
-          {thought.thoughtText}
-        </blockquote>
+    <div className="singlePost pt-3 pb-4">
+      <div className="commentTop border p-3 mb-5 mt-3 rounded-3 d-flex flex-column justify-content-center">
+        <h3 className="d-flex">
+          {thought.thoughtAuthor}'s Post <br />
+        </h3>
+        <div className="">
+          <blockquote
+            className=""
+            style={{
+              fontSize: '1.5rem',
+              fontStyle: 'italic',
+              // border: '2px dotted #1a1a1a',
+              lineHeight: '1.5',
+            }}
+          >
+            {thought.thoughtText}
+            <br />
+            <span style={{ fontSize: '1rem' }}>
+              posted on {thought.createdAt}
+            </span>
+          </blockquote>
+        </div>
       </div>
-
-      <div className="my-1">
-        <CommentList comments={thought.comments} />
-      </div>
-      <div className="m-3 p-4" style={{ border: '1px dotted #1a1a1a' }}>
+      <div className="commentBottom p-3 border rounded">
         <CommentForm thoughtId={thought._id} />
+        <CommentList comments={thought.comments} />
       </div>
     </div>
   );
