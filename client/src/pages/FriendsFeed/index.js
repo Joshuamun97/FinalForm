@@ -6,6 +6,7 @@ import FriendsPosts from '../../components/FriendsPosts';
 import './index.scss'
 import Auth from '../../utils/auth'
 import Login from '../Login/Login';
+
 const FriendsFeed = () => {
   const { loading, data } = useQuery(QUERY_THOUGHTS);
   const thoughts = data?.thoughts || [];
