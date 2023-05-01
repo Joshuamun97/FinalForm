@@ -14,28 +14,6 @@ const Post = ({
   showTitle = true,
   showUsername = true,
 }) => {
-  const sampleThoughts = [
-    {
-      _id: '1',
-      thoughtText: 'Chillin like a villan',
-      thoughtAuthor: 'Joshua Muniz',
-      createdAt: '5 mins ago',
-    },
-    {
-      _id: '2',
-      thoughtText: 'Lorem ipsum dolor sit amet',
-      thoughtAuthor: 'John Doe',
-      createdAt: '2 hours ago',
-    },
-    {
-      _id: '3',
-      thoughtText: 'Consectetur adipiscing elit',
-      thoughtAuthor: 'Jane Smith',
-      createdAt: '1 day ago',
-    },
-  ];
-
-  const actualThoughts = thoughts || sampleThoughts;
 
   const [thoughtList, setThoughtList] = useState(thoughts);
 
@@ -61,8 +39,6 @@ const Post = ({
   return (
     <div>
       {showTitle && <h3>{title}</h3>}
-
-      {actualThoughts.map((thought) => (
       {thoughtList.map((thought) => (
         <div key={thought._id} className="post mb-3 rounded-2" >
           <div className="postWrapper p-3">
