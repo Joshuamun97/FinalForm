@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import profilePic from '../../assets/images/userImage.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEllipsisVertical, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisVertical, faThumbsUp, faTrash } from '@fortawesome/free-solid-svg-icons';
 import './index.scss'
 import { Link } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import { DELETE_THOUGHT } from '../../utils/mutations';
 import Likes from '../LikesButton/LikesButton.js'
 
 const Post = ({
@@ -12,33 +14,33 @@ const Post = ({
   showTitle = true,
   showUsername = true,
 }) => {
-  const sampleThoughts = [
-    {
-      _id: '1',
-      thoughtText: 'Chillin like a villan',
-      thoughtAuthor: 'Joshua Muniz',
-      createdAt: '5 mins ago',
-    },
-    {
-      _id: '2',
-      thoughtText: 'Lorem ipsum dolor sit amet',
-      thoughtAuthor: 'John Doe',
-      createdAt: '2 hours ago',
-    },
-    {
-      _id: '3',
-      thoughtText: 'Consectetur adipiscing elit',
-      thoughtAuthor: 'Jane Smith',
-      createdAt: '1 day ago',
-    },
-  ];
 
-  const actualThoughts = thoughts || sampleThoughts;
+  const [thoughtList, setThoughtList] = useState(thoughts);
+
+  useEffect(() => {
+    setThoughtList(thoughts);
+  }, [thoughts]);
+
+  // define the handleDelete function
+  const [removeThought] = useMutation(DELETE_THOUGHT);
+
+  const handleDelete = async (thoughtId) => {
+    // console.log('Deleting thought with ID:', thoughtId);
+    try {
+      const { data } = await removeThought({ variables: { thoughtId } });
+      //  console.log('Deleted thought:', data);
+      // update the list of thoughts after deleting the thought
+      setThoughtList(thoughtList.filter(thought => thought._id !== thoughtId));
+      window.location.reload(); // reload the page
+    } catch (error) {
+      console.error('Error deleting thought:', error);
+    }
+  };
 
   return (
     <div>
       {showTitle && <h3>{title}</h3>}
-      {actualThoughts.map((thought) => (
+      {thoughts.map((thought) => (
         <div key={thought._id} className="post mb-3 rounded-2" >
           <div className="postWrapper p-3">
             <div className="postTop d-flex align-items-center justify-content-between">
@@ -47,7 +49,7 @@ const Post = ({
                 <span className="postUsername">{thought.thoughtAuthor}</span>
                 <span className="postTimeStamp">{thought.createdAt}</span>
               </div>
-              <div className="postTopRight">
+              {/* <div className="postTopRight">
                 <FontAwesomeIcon className='moreIcon' icon={faEllipsisVertical} color="#c94247" />
               </div>
             </div>
@@ -57,22 +59,23 @@ const Post = ({
             <div className="postBottom d-flex align-items-center justify-content-between">
               <div className="postBottomLeft d-flex align-items-center">
                 {/* <FontAwesomeIcon className='likeIcon me-1' icon={faThumbsUp} color="#c94247" /> */}
-                {/* <span className="likeCounter">5 people liked this</span> */}
-                <Likes />
-              </div>
-              <div className="postBottomRight">
-                <Link to={`/singlePost/${thought._id}`} className="postCommentText">
-                  {/* <span className="commentIcon"></span> */}
-                  {thought.comments && thought.comments.length > 0 &&
-                    <span className="commentCount">{thought.comments.length}</span>}
-                  <span className="commentText">{thought.comments && thought.comments.length === 1 ? 'Comment' : 'Comments'}</span>
-                </Link>
-              </div>
+              {/* <span className="likeCounter">5 people liked this</span> */}
+              <Likes />
+            </div>
+            <div className="postBottomRight">
+              <Link to={`/singlePost/${thought._id}`} className="postCommentText">
+                {/* <span className="commentIcon"></span> */}
+                {thought.comments && thought.comments.length > 0 &&
+                  <span className="commentCount">{thought.comments.length}</span>}
+                <span className="commentText">{thought.comments && thought.comments.length === 1 ? 'Comment' : 'Comments'}</span>
+              </Link>
             </div>
           </div>
         </div>
-      ))}
-    </div>
+
+      ))
+      }
+    </div >
   );
 };
 
