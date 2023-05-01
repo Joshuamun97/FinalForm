@@ -36,11 +36,10 @@ const Post = ({
       console.error('Error deleting thought:', error);
     }
   };
-
   return (
     <div>
       {showTitle && <h3>{title}</h3>}
-      {thoughts.map((thought) => (
+      {thoughtList.map((thought) => (
         <div key={thought._id} className="post mb-3 rounded-2" >
           <div className="postWrapper p-3">
             <div className="postTop d-flex align-items-center justify-content-between">
