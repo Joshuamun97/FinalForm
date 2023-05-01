@@ -69,7 +69,7 @@ const Share = () => {
   return (
     <div className='container'>
       <form className="shareContainer d-flex rounded-2 " onSubmit={handleFormSubmit}>
-        <div className='shareContent container flex-wrap p-2'>
+        <div className='shareContent container flex-wrap p-3'>
           <div className="shareTop d-flex flex-wrap align-items-center mt-4">
             <img className='profilePic' src={person} />
             <input placeholder='Share something amazing...' className='shareInput border-0 w-75' name="thoughtText" value={thoughtText} onChange={handleChange} />
