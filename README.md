@@ -16,6 +16,8 @@
 
 ![Screenshot 2023-04-29 at 8 22 37 PM](https://user-images.githubusercontent.com/106634926/235334625-04d51593-a391-4d79-8da2-bd30ea702d34.png)
 
+Deployed site: https://stormy-basin-52509.herokuapp.com/
+
 ## Installation
 To create an app similar to this, you will need the MERN stack (MongoDB/Mongoose, Express, React, Node), Apollo Client, and GraphQL (see /client/package.json). Create the React client-side with npx generate-react-app client and using node, install packages with npm i. You will see these packages also include jwt-token for authorization and bootstrap/react-bootstrap/react-icons for styling.
 
