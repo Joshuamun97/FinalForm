@@ -1,4 +1,4 @@
-const { AuthenticationError } = require('apollo-server-express');
+const { AuthenticationError, UserInputError } = require('apollo-server-express');
 const { User, Thought } = require('../models');
 const { signToken } = require('../utils/auth');
 
@@ -113,6 +113,28 @@ const resolvers = {
         );
       }
       throw new AuthenticationError('You need to be logged in!');
+    },
+    likeThought: async (parent, { thoughtId }, context) => {
+      if (context.user) {
+        const { username } = signToken(context);
+
+        const thought = await Thought.findById(thoughtId);
+        if (thought) {
+          if (thought.likes.find(like => like.username === username)) {
+            // Post already liked, unlike it
+            thought.likes = thought.likes.filter(like => like.username !== username);
+          } else {
+            // Not liked, like post
+            thought.likes.push({
+              username,
+              createdAt: new Date().toISOString()
+            })
+          }
+          await thought.save();
+          return thought;
+
+        } else throw new UserInputError('Post not found')
+      } else throw new AuthenticationError('You need to be logged in!');
     },
   },
 };
