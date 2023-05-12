@@ -15,6 +15,7 @@ const typeDefs = gql`
     thoughtAuthor: String
     createdAt: String
     comments: [Comment]!
+    likes: [Like]!
   }
 
   type Comment {
@@ -22,6 +23,12 @@ const typeDefs = gql`
     commentText: String
     commentAuthor: String
     createdAt: String
+  }
+
+  type Like {
+    _id: ID!
+    createdAt: String!
+    likeAuthor: String!
   }
 
   type Auth {
@@ -44,6 +51,7 @@ const typeDefs = gql`
     addComment(thoughtId: ID!, commentText: String!): Thought
     removeThought(thoughtId: ID!): Thought
     removeComment(thoughtId: ID!, commentId: ID!): Thought
+    likeThought(thoughtID: ID!): Thought!
   }
 `;
 

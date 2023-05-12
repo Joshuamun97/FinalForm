@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import profilePic from '../../assets/images/userImage.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisVertical, faThumbsUp, faTrash } from '@fortawesome/free-solid-svg-icons';
@@ -6,36 +6,43 @@ import './index.scss'
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { DELETE_THOUGHT } from '../../utils/mutations';
-import Likes from '../LikesButton/LikesButton.js'
+import LikeButton from '../LikesButton/LikesButton';
+import { AuthContext } from '../../context/auth';
 
 const Post = ({
+  body,
+  username,
   thoughts,
   title,
+  id,
+  likes,
+  likeCount,
   showTitle = true,
   showUsername = true,
 }) => {
 
+  const { user } = useContext(AuthContext);
   const [thoughtList, setThoughtList] = useState(thoughts);
 
   useEffect(() => {
     setThoughtList(thoughts);
   }, [thoughts]);
 
-    // define the handleDelete function
-    const [removeThought] = useMutation(DELETE_THOUGHT);
+  // define the handleDelete function
+  const [removeThought] = useMutation(DELETE_THOUGHT);
 
-    const handleDelete = async (thoughtId) => {
-      // console.log('Deleting thought with ID:', thoughtId);
-      try {
-       const {data} = await removeThought({ variables: { thoughtId } });
+  const handleDelete = async (thoughtAuthor, thoughtId) => {
+    // console.log('Deleting thought with ID:', thoughtId);
+    try {
+      const { data } = await removeThought({ variables: { thoughtAuthor, thoughtId } });
       //  console.log('Deleted thought:', data);
-        // update the list of thoughts after deleting the thought
-        setThoughtList(thoughtList.filter(thought => thought._id !== thoughtId));
-        window.location.reload(); // reload the page
-      } catch (error) {
-        console.error('Error deleting thought:', error);
-      }
-    };
+      // update the list of thoughts after deleting the thought
+      setThoughtList(thoughtList.filter(thought => thought._id !== thoughtId));
+      window.location.reload(); // reload the page
+    } catch (error) {
+      console.error('Error deleting thought:', error);
+    }
+  };
   return (
     <div>
       {showTitle && <h3>{title}</h3>}
@@ -48,14 +55,18 @@ const Post = ({
                 <span className="postUsername">{thought.thoughtAuthor}</span>
                 <span className="postTimeStamp">{thought.createdAt}</span>
               </div>
-              {/* <div className="postTopRight">
-                <FontAwesomeIcon className='moreIcon' icon={faEllipsisVertical} color="#c94247" />
-              </div> */}
+              {/* {thought && thought.thoughtAuthor === thoughtAuthor && (
+                              <div className="postTopRight">
+                              <button className='moreIcon' onClick={() => handleDelete(thought._id)}>
+                                <FontAwesomeIcon icon={faTrash} color="#c94247" />
+                              </button>
+                            </div> */}
+              {/* )} */}
               <div className="postTopRight">
-  <button className='moreIcon' onClick={() => handleDelete(thought._id)}>
-    <FontAwesomeIcon icon={faTrash} color="#c94247" />
-  </button>
-</div>
+                <button className='moreIcon' onClick={() => handleDelete(thought._id)}>
+                  <FontAwesomeIcon icon={faTrash} color="#c94247" />
+                </button>
+              </div>
 
             </div>
             <div className="postBody">
@@ -63,9 +74,10 @@ const Post = ({
             </div>
             <div className="postBottom d-flex align-items-center justify-content-between">
               <div className="postBottomLeft d-flex align-items-center">
-                {/* <FontAwesomeIcon className='likeIcon me-1' icon={faThumbsUp} color="#c94247" /> */}
-                {/* <span className="likeCounter">5 people liked this</span> */}
-                <Likes />
+                <LikeButton 
+                user= { user }
+                post={{id, likes, likeCount }}
+                />
               </div>
               <div className="postBottomRight">
                 <Link to={`/singlePost/${thought._id}`} className="postCommentText">

@@ -62,3 +62,9 @@ export const DELETE_THOUGHT = gql`
     }
   }
 `;
+
+export const LIKE_POST= gql`
+mutation likeThought($postID: ID!){ 
+  likeThought(thoughtId: $thoughtId) 
+  }
+`
