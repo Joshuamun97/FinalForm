@@ -51,9 +51,9 @@ const thoughtSchema = new Schema({
       },
     }
   ],
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: 'User'
+  likeCount: {
+    type: Number,
+    default: 0
   }
 });
 

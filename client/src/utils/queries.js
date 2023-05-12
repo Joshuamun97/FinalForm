@@ -10,6 +10,18 @@ export const QUERY_USER = gql`
         _id
         thoughtText
         createdAt
+        likes {
+          _id
+          likeAuthor
+          createdAt
+        }
+        likeCount
+        comments {
+          _id
+          commentText
+          commentAuthor
+          createdAt
+        }
       }
     }
   }
@@ -22,6 +34,18 @@ export const QUERY_THOUGHTS = gql`
       thoughtText
       thoughtAuthor
       createdAt
+      likes {
+        _id
+        likeAuthor
+        createdAt
+      }
+      likeCount
+      comments {
+        _id
+        commentText
+        commentAuthor
+        createdAt
+      }
     }
   }
 `;
@@ -33,6 +57,12 @@ export const QUERY_SINGLE_THOUGHT = gql`
       thoughtText
       thoughtAuthor
       createdAt
+      likes {
+        _id
+        likeAuthor
+        createdAt
+      }
+      likeCount
       comments {
         _id
         commentText
@@ -54,6 +84,18 @@ export const QUERY_ME = gql`
         thoughtText
         thoughtAuthor
         createdAt
+        likes {
+          _id
+          likeAuthor
+          createdAt
+        }
+        likeCount
+        comments {
+          _id
+          commentText
+          commentAuthor
+          createdAt
+        }
       }
     }
   }

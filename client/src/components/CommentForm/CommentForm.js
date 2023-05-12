@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import './index.scss';
 import { ADD_COMMENT } from '../../utils/mutations';
@@ -45,14 +44,6 @@ const CommentForm = ({ thoughtId }) => {
 
       {/* {Auth.loggedIn() ? ( */}
         <>
-          {/* <p
-            className={`m-0 ${
-              characterCount === 280 || error ? 'text-danger' : ''
-            }`}
-          >
-            Character Count: {characterCount}/280
-            {error && <span className="ml-2">{error.message}</span>}
-          </p> */}
           <form
             className="d-flex flex-row align-center"
             onSubmit={handleFormSubmit}

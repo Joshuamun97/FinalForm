@@ -16,6 +16,7 @@ const typeDefs = gql`
     createdAt: String
     comments: [Comment]!
     likes: [Like]!
+    likeCount: Int!
   }
 
   type Comment {
@@ -51,7 +52,7 @@ const typeDefs = gql`
     addComment(thoughtId: ID!, commentText: String!): Thought
     removeThought(thoughtId: ID!): Thought
     removeComment(thoughtId: ID!, commentId: ID!): Thought
-    likeThought(thoughtID: ID!): Thought!
+    likeThought(thoughtId: ID!): Thought!
   }
 `;
 
