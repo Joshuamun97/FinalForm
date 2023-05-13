@@ -1,5 +1,4 @@
 import React from 'react';
-// import CommentItem from '../CommentItem/CommentItem';
 
 const CommentList = ({ comments = [] }) => {
   if (!comments.length) {

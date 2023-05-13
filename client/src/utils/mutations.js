@@ -31,9 +31,17 @@ export const ADD_THOUGHT = gql`
       thoughtText
       thoughtAuthor
       createdAt
+      likes {
+        _id
+        likeAuthor
+        createdAt
+      }
+      likeCount
       comments {
         _id
         commentText
+        commentAuthor
+        createdAt
       }
     }
   }
@@ -46,9 +54,16 @@ export const ADD_COMMENT = gql`
       thoughtText
       thoughtAuthor
       createdAt
+      likes {
+        _id
+        likeAuthor
+        createdAt
+      }
+      likeCount
       comments {
         _id
         commentText
+        commentAuthor
         createdAt
       }
     }
@@ -64,7 +79,24 @@ export const DELETE_THOUGHT = gql`
 `;
 
 export const LIKE_POST= gql`
-mutation likeThought($postID: ID!){ 
-  likeThought(thoughtId: $thoughtId) 
+mutation likeThought($thoughtId: ID!){ 
+  likeThought(thoughtId: $thoughtId) {
+    _id
+    thoughtText
+    thoughtAuthor
+    createdAt
+    likes {
+      _id
+      likeAuthor
+      createdAt
+    }
+    likeCount
+    comments {
+      _id
+      commentText
+      commentAuthor
+      createdAt
+    }
+  }
   }
 `

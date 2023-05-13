@@ -53,6 +53,8 @@ const resolvers = {
         const thought = await Thought.create({
           thoughtText,
           thoughtAuthor: context.user.username,
+          likes: [],
+          likeCount: 0,
         });
 
         await User.findOneAndUpdate(
@@ -116,27 +118,33 @@ const resolvers = {
     },
     likeThought: async (parent, { thoughtId }, context) => {
       if (context.user) {
-        const { username } = signToken(context);
-
         const thought = await Thought.findById(thoughtId);
-        if (thought) {
-          if (thought.likes.find(like => like.username === username)) {
-            // Post already liked, unlike it
-            thought.likes = thought.likes.filter(like => like.username !== username);
-          } else {
-            // Not liked, like post
-            thought.likes.push({
-              username,
-              createdAt: new Date().toISOString()
-            })
-          }
-          await thought.save();
-          return thought;
+      if (thought) {
+        const { username } = context.user;
 
-        } else throw new UserInputError('Post not found')
-      } else throw new AuthenticationError('You need to be logged in!');
-    },
-  },
+      if (thought.likes.some((like) => like.likeAuthor === username)) {
+        thought.likes = thought.likes.filter(
+          (like) => like.likeAuthor !== username
+        );
+        thought.likeCount -= 1; // Decrement likeCount
+      } else {
+        thought.likes.push({
+          likeAuthor: username,
+          createdAt: new Date().toISOString(),
+        });
+        thought.likeCount += 1; // Increment likeCount
+      }
+
+      await thought.save();
+      return thought;
+    } else {
+      throw new UserInputError('Thought not found');
+    }
+  } else {
+    throw new AuthenticationError('You need to be logged in!');
+  }
+}
+}
 };
 
 module.exports = resolvers;
