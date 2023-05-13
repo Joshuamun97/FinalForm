@@ -22,10 +22,11 @@
 
 .btn__container {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     flex-direction: row;
-    column-gap: 20px;
+    column-gap: 10px;
     width: 200px;
+    margin-left: 5%;
 }
 
 .control__btn {
