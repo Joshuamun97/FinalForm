@@ -53,7 +53,7 @@ const CommentForm = ({ thoughtId }) => {
                 name="commentText"
                 placeholder="Add your comment..."
                 value={commentText}
-                className="commentArea"
+                className="commentArea message"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
               ></textarea>
