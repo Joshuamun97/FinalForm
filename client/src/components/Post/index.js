@@ -8,6 +8,11 @@ import { useMutation } from '@apollo/client';
 import { DELETE_THOUGHT } from '../../utils/mutations';
 import LikeButton from '../LikesButton/LikesButton';
 // import { AuthContext } from '../../context/auth';
+import Popup from '../Popup';
+import SingleThought from '../../pages/SinglePost/SinglePost';
+import CommentForm from '../CommentForm/CommentForm';
+import CommentList from '../CommentList/CommentList';
+import ShowComments from '../ShowComments';
 
 const Post = ({
   thoughts,
@@ -18,6 +23,7 @@ const Post = ({
 
   // const { user } = useContext(AuthContext);
   const [thoughtList, setThoughtList] = useState(thoughts);
+  const [showComments, setShowComments] = useState(true);
 
   useEffect(() => {
     setThoughtList(thoughts);
@@ -30,7 +36,7 @@ const Post = ({
     console.log('Deleting thought with ID:', thoughtId);
     try {
       const { data } = await removeThought({ variables: { thoughtId } });
-       console.log('Deleted thought:', data);
+      console.log('Deleted thought:', data);
       // update the list of thoughts after deleting the thought
       setThoughtList(thoughtList.filter(thought => thought._id !== thoughtId));
       window.location.reload(); // reload the page
@@ -65,19 +71,22 @@ const Post = ({
                 <LikeButton thought={thought} likeCount={thought.likes.length} />
               </div>
               <div className="postBottomRight">
-                <Link to={`/singlePost/${thought._id}`} className="postCommentText">
-                  {/* <span className="commentIcon"></span> */}
-                  {thought.comments && thought.comments.length > 0 &&
-                    <span className="commentCount">{thought.comments.length}</span>}
-                  <span className="commentText">{thought.comments && thought.comments.length === 1 ? 'Comment' : 'Comments'}</span>
-                </Link>
+                <ShowComments />
               </div>
             </div>
           </div>
+          {/* {showComments &&
+            <div trigger={ShowComments} setTrigger={setShowComments} className="p-3 viewComments"
+            >
+              <CommentForm thoughtId={thought._id} />
+              <CommentList comments={thought.comments} />
+            </div>} */}
         </div>
       ))}
     </div>
   );
 };
+
+
 
 export default Post;

@@ -64,7 +64,10 @@
 
 import React from 'react';
 import { useMutation } from '@apollo/client';
-import { LIKE_POST } from '../../utils/mutations'; // Import the LIKE_POST mutation
+import { LIKE_POST } from '../../utils/mutations'; 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import './index.scss'
 
 // Inside the LikeButton component
 const LikeButton = ({ thought, likeCount }) => {
@@ -77,8 +80,9 @@ const LikeButton = ({ thought, likeCount }) => {
     };
   
     return (
-      <div>
-        <button onClick={handleLike}>Like</button>
+      <div className="btn__container">
+        <button className="control__btn" onClick={handleLike}>
+          <FontAwesomeIcon icon={faThumbsUp} color="#c94247" /></button>
         <span>{likeCount} likes</span>
       </div>
     );
