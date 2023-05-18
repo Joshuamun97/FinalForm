@@ -24,10 +24,16 @@ const Post = ({
   // const { user } = useContext(AuthContext);
   const [thoughtList, setThoughtList] = useState(thoughts);
   const [showComments, setShowComments] = useState(true);
+  const [selectedThoughtId, setSelectedThoughtId] = useState(null);
+
 
   useEffect(() => {
     setThoughtList(thoughts);
   }, [thoughts]);
+
+  const handleSelectThought = (thoughtId) => {
+    setSelectedThoughtId(thoughtId);
+  }
 
   // define the handleDelete function
   const [removeThought] = useMutation(DELETE_THOUGHT);
@@ -71,16 +77,19 @@ const Post = ({
                 <LikeButton thought={thought} likeCount={thought.likes.length} />
               </div>
               <div className="postBottomRight">
-                <ShowComments />
+                {/* <ShowComments showComments={showComments} setShowComments={setShowComments} /> */}
+                <ShowComments thoughtId={thought._id} selectedThoughtId={selectedThoughtId} handleSelectThought={handleSelectThought}/>
               </div>
             </div>
           </div>
-          {/* {showComments &&
-            <div trigger={ShowComments} setTrigger={setShowComments} className="p-3 viewComments"
+          {/* {showComments && */}
+          {selectedThoughtId === thought._id && showComments && (
+            <div className="p-3 viewComments"
             >
               <CommentForm thoughtId={thought._id} />
               <CommentList comments={thought.comments} />
-            </div>} */}
+            </div>
+            )}
         </div>
       ))}
     </div>
