@@ -22,7 +22,7 @@ const CommentList = ({ comments = [] }) => {
                 <h5 className="card-header">
                   {comment.commentAuthor} commented{' '}
                   <span style={{ fontSize: '0.825rem' }}>
-                    on {comment.createdAt}
+                    {comment.createdAt}
                   </span>
                 </h5>
                 <p className="card-body">{comment.commentText}</p>

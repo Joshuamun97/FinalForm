@@ -17,7 +17,24 @@ const thoughtSchema = new Schema({
   createdAt: {
     type: Date,
     default: Date.now,
-    get: (timestamp) => dateFormat(timestamp),
+    // get: (timestamp) => dateFormat(timestamp),
+    
+    get: function (timestamp) {
+      const now = Date.now();
+      const inMinutes = Math.floor((now - timestamp) / (1000 * 60));
+      const inHours = Math.floor(inMinutes / 60);
+
+      if (inMinutes === 0) {
+        return 'just now';
+      } else if (inMinutes < 60) {
+        return `${inMinutes} minute${inMinutes > 1 ? 's' : ''} ago`;
+      } else if (inHours < 24) {
+        return `${inHours} hour${inHours > 1 ? 's' : ''} ago`;
+      } else {
+        const inDays = Math.floor(inHours / 24);
+        return `${inDays} day${inDays > 1 ? 's' : ''} ago`;
+      }
+    },
   },
   comments: [
     {
@@ -34,7 +51,23 @@ const thoughtSchema = new Schema({
       createdAt: {
         type: Date,
         default: Date.now,
-        get: (timestamp) => dateFormat(timestamp),
+        // get: (timestamp) => dateFormat(timestamp),
+        get: function (timestamp) {
+          const now = Date.now();
+          const inMinutes = Math.floor((now - timestamp) / (1000 * 60));
+          const inHours = Math.floor(inMinutes / 60);
+    
+          if (inMinutes === 0) {
+            return 'just now';
+          } else if (inMinutes < 60) {
+            return `${inMinutes} minute${inMinutes > 1 ? 's' : ''} ago`;
+          } else if (inHours < 24) {
+            return `${inHours} hour${inHours > 1 ? 's' : ''} ago`;
+          } else {
+            const inDays = Math.floor(inHours / 24);
+            return `${inDays} day${inDays > 1 ? 's' : ''} ago`;
+          }
+        },
       },
     },
   ],
@@ -47,7 +80,23 @@ const thoughtSchema = new Schema({
       createdAt: {
         type: Date,
         default: Date.now,
-        get: (timestamp) => dateFormat(timestamp),
+        // get: (timestamp) => dateFormat(timestamp),
+        get: function (timestamp) {
+          const now = Date.now();
+          const inMinutes = Math.floor((now - timestamp) / (1000 * 60));
+          const inHours = Math.floor(inMinutes / 60);
+    
+          if (inMinutes === 0) {
+            return 'just now';
+          } else if (inMinutes < 60) {
+            return `${inMinutes} minute${inMinutes > 1 ? 's' : ''} ago`;
+          } else if (inHours < 24) {
+            return `${inHours} hour${inHours > 1 ? 's' : ''} ago`;
+          } else {
+            const inDays = Math.floor(inHours / 24);
+            return `${inDays} day${inDays > 1 ? 's' : ''} ago`;
+          }
+        },
       },
     }
   ],
